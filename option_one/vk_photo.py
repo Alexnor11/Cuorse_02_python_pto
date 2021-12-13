@@ -5,7 +5,7 @@ from users_data import session
 def get_photo(user_id):
     """Получение топ3 фото пользователя"""
     photo_id = session.method('photos.get', {'owner_id': user_id,
-                                             'album_id': 'wall',
+                                             'album_id': 'profile',
                                              'extended': 1,
                                              # 'count': 3,
 

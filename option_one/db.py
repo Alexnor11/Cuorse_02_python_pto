@@ -49,7 +49,7 @@ def insert_users(id_user, first_name, link):
             f"INSERT INTO users (id_user, first_name, link) VALUES('{id_user}', '{first_name}', '{link}');"
         )
 
-        print("[INFO] Данные были успешно вставлены")
+        print("[INFO] Данные были успешно добавлены в таблицу!")
 
 
 def read_users_id():
@@ -65,7 +65,3 @@ def read_users_id():
 
         return list_ids
 
-
-# print(len(read_users_id()))
-# read_users_id()
-# print(read_users_id())

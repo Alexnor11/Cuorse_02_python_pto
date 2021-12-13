@@ -7,27 +7,26 @@ import db
 # users_id = '107265371'
 
 def get_users_check():
-    """Функция проверяет информацию пользователя, если данных не достаточно
-     запросить у пользователя"""
     data = get_users(event.user_id)
+    if 'title' not in data['city'] or 'city' not in data:
+        data['city']['title'] = input('Введите город: ')
 
-    # if 'title' not in data['city'] or 'city' not in data:
-    #     write_msg(event.user_id, 'Веди город:')
-    #     # ждать ответа (не реализовано)
-    #     data['city']['title'] = request
-    # Инвертировать пол:
+    # if 'bdate' not in data or not re.findall(r"\d{1,2}.\d{1,2}.\d{4}", data['bdate']):
+    #     # bdate = input('Введите год: ')
+    #     bdate = data['bdate'] = input('Введите год "дд.мм.гггг": ')
+    # else:
+    #     print('Год верен!')
+    # Сегодняшняя дата:
+    # a = datetime.datetime.today().year
+    # print(a)
+    # data['age'] = int(input('Введите возраст: '))
+    data['age'] = 25
     if data['sex'] == 2:
         data['sex'] = 1
-    # elif data['sex'] == 0 or 'sex' not in data:
-    #     # ждать ответа
-    #     write_msg(event.user_id, 'Веди пол:')
-    #     data['sex'] = request
+    elif data['sex'] == 0 or 'sex' not in data:
+        print('Введите пол: ')
     else:
         data['sex'] = 2
-
-        # Реализовать ввод возраста кандидата age_to через VKBot
-    # write_msg(event.user_id, "Введи возраст кандидата ДО:")
-    data['age'] = 30
 
     return data
 
